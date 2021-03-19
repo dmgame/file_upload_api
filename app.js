@@ -2,13 +2,12 @@ const express = require('express');
 const multer  = require('multer');
 const fs  = require('fs');
 const path = require('path');
+const cors = require('cors')
 
 const app = express()
 const PORT = 2121;
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
+app.use(cors())
 
 const storage = multer.diskStorage({
     destination: function (req, file, callback) {
